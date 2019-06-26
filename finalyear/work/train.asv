@@ -1,0 +1,15 @@
+load('-ascii','data.mat');
+P=data(1:20,1:8);
+T=data(1:20,9);
+a=data(21:40,1:8);
+s=data(21:40,9);
+l=data(577:768,1:8);
+m=data(577:768,9);
+[pn,minp,maxp,tn,mint,maxt]=premnmx(P',T');
+[an,mina,maxa,sn,mins,maxs]=premnmx(a',s');
+[ln,minl,maxl,mn,minm,maxm]=premnmx(l',m');
+net=newff(minmax(pn),[8 1],{'tansig','tansig'},'traingd');
+net.trainParam.goal=0.1;
+net.trainParam.epochs=1000;
+net.trainParam.lr=0.1;
+net=train(net,pn,tn);

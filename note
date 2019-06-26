@@ -1,0 +1,12 @@
+go to debug
+add configuration
+select python
+type attach python debugger
+save and reload vs code
+
+//Need Anaconda paython for pandas dataframe library
+add "python.pythonPath": "C:\\Program Files\\Anaconda3\\python.exe"
+
+//Install packages in python
+go to cmd bash
+> pip install matplotlib
